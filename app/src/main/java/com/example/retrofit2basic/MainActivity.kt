@@ -48,6 +48,9 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     if(response.isSuccessful){
                         Log.e(TAG, response.body().toString())
+//                        val result : EmgMedInfo? = response.body()?.emgMedInfo?.get(1)?.row
+                        val result : List<Row?>? = response.body()?.emgMedInfo?.get(1)?.row
+                        emgMedAdapter.submitList(result!!)
                     }
                 }
 
